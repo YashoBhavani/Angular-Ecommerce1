@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class="form-container">
+        <h2>Simple Form</h2>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">First name:</label>
+                <input type="text" id="name" [(ngModel)]="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" [(ngModel)]="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label><br>
+                <textarea id="message" rows="5" [(ngModel)]="message" name="message"
+                    required>Enter your message here</textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+       <!--  <table *ngIf="isSubmitted">
+            <caption><h2>Form Data</h2></caption>
+                <tr  class="table-header">
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                </tr>
+                <tr *ngFor="let msg of messages;let i = index" class="table-body">
+                    <td>{{i+1}}</td>
+                    <td>{{msg.name}}</td>
+                    <td>{{msg.email}}</td>
+                    <td>{{msg.message}}</td>
+                </tr>
+        </table> -->
+
+        <div class="flex-container" *ngIf="isSubmitted">
+            <app-message-details
+             *ngFor="let msg of messages;let i = index" 
+             [message]="msg"
+             [index]="i"
+             (delete)="deleteMessage($event)">
+            </app-message-details>
+        </div>
+    </div>
+</body>
+
+</html>
