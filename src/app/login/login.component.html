@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class="form-container">
+        <h2>Login</h2>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">User name:</label>
+                <input type="text" id="name" [(ngModel)]="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="Password">Password:</label>
+                <input type="password" id="password" [(ngModel)]="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+
+       <!--  <table *ngIf="isSubmitted">
+            <caption><h2>Form Data</h2></caption>
+                <tr  class="table-header">
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                </tr>
+                <tr *ngFor="let msg of messages;let i = index" class="table-body">
+                    <td>{{i+1}}</td>
+                    <td>{{msg.name}}</td>
+                    <td>{{msg.email}}</td>
+                    <td>{{msg.message}}</td>
+                </tr>
+        </table> -->
+
+        
+    </div>
+</body>
+
+</html>
